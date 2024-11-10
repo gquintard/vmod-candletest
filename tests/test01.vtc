@@ -1,0 +1,21 @@
+varnishtest "basic file access"
+
+varnish v1 -cliok "param.set thread_pool_stack 2M" -vcl {
+	import fileserver from "${~/vmod-candle/target/release/libvmod_fileserver.so}";
+
+	backend default none;
+
+	sub vcl_init {
+		new www = fileserver.root();
+	}
+
+	sub vcl_recv {
+		set req.backend_hint = www.backend();
+	}
+} -start
+
+client c1 {
+	txreq -hdr "ask: Tell me about Oslo?"
+	rxresp
+	expect resp.body == "foo"
+} -run

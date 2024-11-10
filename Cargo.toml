@@ -1,0 +1,22 @@
+[package]
+name = "vmod_candletest"
+version = "0.0.6"
+edition = "2021"
+license = "BSD-3-Clause"
+
+[dependencies]
+chrono = "0.4.23"
+clap = { version = "4.5.20", features = ["derive"] }
+varnish = { git = "https://github.com/gquintard/varnish-rs.git" }
+varnish-macros = { git = "https://github.com/gquintard/varnish-rs.git" }
+varnish-sys = { git = "https://github.com/gquintard/varnish-rs.git" }
+anyhow = "1.0.92"
+hf-hub = { version = "0.3.3", package = "candle-hf-hub" }
+tokenizers = { version = "0.19.1", default-features = false }
+candle-core = { version = "0.7.2", features = ["cudnn", "mkl"] }
+candle-transformers = { version = "0.7.2", features = ["flash-attn"] }
+candle-examples = { version = "0.7.2", features = ["candle-datasets", "candle-onnx", "cpal", "cudarc", "depth_anything_v2", "encodec", "enterpolation", "flash-attn", "microphone", "mimi", "nccl", "onnx", "palette", "rubato", "symphonia"] }
+
+[lib]
+crate-type = ["cdylib"]
+
