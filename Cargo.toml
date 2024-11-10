@@ -14,8 +14,8 @@ anyhow = "1.0.92"
 hf-hub = { version = "0.3.3", package = "candle-hf-hub" }
 tokenizers = { version = "0.19.1", default-features = false }
 candle-core = { version = "0.7.2", features = ["cudnn"] }
-candle-transformers = { version = "0.7.2", features = ["flash-attn"] }
-candle-examples = { version = "0.7.2", features = ["candle-datasets", "candle-onnx", "cpal", "cudarc", "depth_anything_v2", "encodec", "enterpolation", "flash-attn", "microphone", "mimi", "nccl", "onnx", "palette", "rubato", "symphonia"] }
+candle-transformers = { version = "0.7.2" }
+candle-examples = { version = "0.7.2", features = ["candle-datasets", "candle-onnx", "cpal", "cudarc", "depth_anything_v2", "encodec", "enterpolation", "microphone", "mimi", "nccl", "onnx", "palette", "rubato", "symphonia"] }
 
 [lib]
 crate-type = ["cdylib"]
